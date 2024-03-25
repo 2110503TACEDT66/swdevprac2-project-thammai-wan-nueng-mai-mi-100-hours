@@ -17,15 +17,19 @@ export default async function TopMenu() {
             <TopMenuItem title="Home" pageRef="/"/>
             <TopMenuItem title="Co-working Spaces" pageRef="/coworkingspace"/>
             <TopMenuItem title="My Reservation" pageRef="/myreservation"/>
-
             {
                 //dummy code for auth section
                 //session?
                 session? <Link href="/api/auth/signout"><div className='flex items-center absolute right-0 h-full px-4
-                text-cyan-600 hover:bg-slate-200'>
+                text-cyan-600 hover:bg-slate-100'>
                 Sign-Out of {session.user?.name}</div></Link>:
-                <Link href="/api/auth/signin"><div className="flex items-center absolute right-0 h-full px-4
-                text-cyan-600 hover:bg-slate-200">Sign-In</div></Link>
+               <>
+               <Link href="/api/auth/signin"><div className="flex items-center absolute right-0 h-full px-4
+               text-cyan-600">Sign-In</div></Link>
+               <div className="flex items-center absolute right-0 h-full px-36 text-cyan-600 hover:bg-slate-100">
+               <TopMenuItem title="Sign-up" pageRef="/signup"/>
+               </div>
+               </>
             }
         </div>
     )
