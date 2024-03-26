@@ -1,31 +1,28 @@
-// import { createSlice } from "@reduxjs/toolkit";
-// import { ReservationItem} from "../../../interfaces";
-// import { PayloadAction } from "@reduxjs/toolkit";
+// coWorkSlice.js
+import { createSlice } from '@reduxjs/toolkit';
 
-// type CoworkState = {
-//     coworkItems: ReservationItem[]
-// }
+export const coWorkSlice = createSlice({
+  name: 'coWork',
+  initialState: {
+    nameco: '',
+    address: '',
+    telco: '',
+    opentime: '',
+    closetime: '',
+    priceco: '',
+  },
+  reducers: {
+    setCoWorkData: (state, action) => {
+      state.nameco = action.payload.nameco;
+      state.address = action.payload.address;
+      state.telco = action.payload.telco;
+      state.opentime = action.payload.opentime;
+      state.closetime = action.payload.closetime;
+      state.priceco = action.payload.priceco;
+    },
+  },
+});
 
-// const initialState: CoworkState = { coworkItems: []}
+export const { setCoWorkData } = coWorkSlice.actions;
 
-// export const coworkSlice = createSlice({
-//     name: "cowork",
-//     initialState,
-//     reducers: {
-//         addBooking: (state, action:PayloadAction<ReservationItem>)=> {
-//             const remain = state.coworkItems.filter( obj => {
-//                 return ((obj.id !== action.payload.id));
-//             })
-//             state.coworkItems = remain;
-//             state.coworkItems.push(action.payload);
-//         },
-//         removeBooking: (state, action: PayloadAction<string>)=> {
-//             const remainItems = state.coworkItems.filter(obj => {
-//                 return obj.id !== action.payload;
-//             });
-//             state.coworkItems = remainItems;
-//         }
-//     }
-// })
-// export const { addBooking , removeBooking} = coworkSlice.actions
-// export default coworkSlice.reducer
+export default coWorkSlice;

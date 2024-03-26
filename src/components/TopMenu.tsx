@@ -15,6 +15,12 @@ export default async function TopMenu() {
             <TopMenuItem title="Home" pageRef="/" />
             <TopMenuItem title="Co-working Spaces" pageRef="/coworkingspace" />
             <TopMenuItem title="My Reservation" pageRef="/myreservation" />
+            
+            {
+            session?.user.role === 'admin' && (
+            <TopMenuItem title="Create Co-working" pageRef="/createcowork" />
+            )
+            }
             <div className="flex-grow"></div>
             {
                 session ? (
