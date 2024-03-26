@@ -6,7 +6,7 @@ export default function RemoveButton({id, token}:{id:string, token:string}) {
 
   return (
     <div>
-        <form action={RemoveReservation} className="flex flex-col items-center my-5">
+        <form action={RemoveReservation} className="flex flex-col my-1">
             <div>
                 <input type="hidden" readOnly id="id" name="id" value={id}/>
                 <input type="hidden" readOnly id="token" name="token" value={token}/>

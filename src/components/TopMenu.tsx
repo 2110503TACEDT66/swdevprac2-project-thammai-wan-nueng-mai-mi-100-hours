@@ -1,6 +1,6 @@
 import Image from "next/image"
 import TopMenuItem from "./TopMenuItem"
-import { Link } from "@mui/material"
+import Link from "next/link";
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import React from "react"
@@ -18,17 +18,21 @@ export default async function TopMenu() {
             <div className="flex-grow"></div>
             {
                 session ? (
-                    <div className='px-4 text-cyan-600 hover:bg-slate-200'>
-                        <Link href="/api/auth/signout">Sign-Out of {session.user?.name}</Link>
-                    </div>
+                        <Link href="/api/auth/signout" className="px-4 h-full text-center my-auto 
+                        font-sans text-cyan-600 hover:bg-slate-200 flex">
+                            <div className="m-auto">
+                                Sign-Out of {session.user?.name}
+                            </div>
+                        </Link>
                 ) : (
                     <>
-                        <div className="px-4 text-cyan-600 hover:bg-slate-200">
-                            <Link href="/api/auth/signin">Sign-In</Link>
-                        </div>
-                        <div className="px-4 text-cyan-600 hover:bg-slate-200">
-                            <TopMenuItem title="Sign-up" pageRef="/signup" />
-                        </div>
+                        <TopMenuItem title="Sign-up" pageRef="/signup" />
+                        <Link href="/api/auth/signin" className="px-4 h-full text-center my-auto 
+                        font-sans text-cyan-600 hover:bg-slate-200 flex">
+                            <div className="m-auto">
+                                Sign-In
+                            </div>
+                        </Link>
                     </>
                 )
             }

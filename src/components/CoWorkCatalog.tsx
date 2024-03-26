@@ -6,12 +6,12 @@ export default async function CoWorkCatalog({ coWorkJson }: { coWorkJson: Promis
     const coWorkReady = await coWorkJson
     return (
         <>
-        Co-working Space List
-            <div className="flex flex-row w-full justify-center flex-wrap content-around mx-[47px]" >
+            <div className="text-3xl font-bold">Co-working Space List</div>
+            <div className="flex flex-row w-full justify-around flex-wrap content-around" >
                 {
                     coWorkReady.data.map((CoWork) => (
-                        <Link href={`/coworkingspace/${CoWork.id}`} className="w-1/4 my-6" >
-                            <Card coWorkName={CoWork.name} imgSrc={CoWork.picture} />
+                        <Link href={`/coworkingspace/${CoWork.id}`} className="w-1/5 my-6 mx-6" >
+                            <Card coWorkName={CoWork.name} imgSrc={CoWork.picture} price={CoWork.price}/>
                         </Link>
                     ))
                 }

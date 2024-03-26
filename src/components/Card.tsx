@@ -3,7 +3,7 @@ import styles from './card.module.css'
 import InteractiveCard from './InteractiveCard';
 import { Rating } from '@mui/material';
 
-export default function Card({ coWorkName, rating, imgSrc, onCompare }: { coWorkName: string, rating?: number, imgSrc: string, onCompare?: Function }) {
+export default function Card({ coWorkName, rating, imgSrc, price }: { coWorkName: string, rating?: number, imgSrc: string, price: number }) {
     return (
         <InteractiveCard contentName={coWorkName}>
             <div className='w-full h-[70%] relative rounded-t-lg'>
@@ -13,7 +13,11 @@ export default function Card({ coWorkName, rating, imgSrc, onCompare }: { coWork
                 className='object-cover rounded-t-lg'
                 />
             </div>
-            <div className={styles.cardtext}>{coWorkName}</div>
+            <div className={styles.cardtext}>
+                <div>{coWorkName}</div>
+                <div className={styles.price}>cost: {price}</div>
+            </div>
+            
                 {
                     rating?
                     <Rating
@@ -21,22 +25,6 @@ export default function Card({ coWorkName, rating, imgSrc, onCompare }: { coWork
                         id={coWorkName + ' Rating'}
                         name={coWorkName + ' Rating'}
                         value={rating}
-                        onChange={(e, newValue) => {
-                            e.stopPropagation();
-                            if (onCompare) {
-                                onCompare(coWorkName, newValue || 0);
-
-                            }
-                        }
-                        }
-
-                        onClick={(e) => {
-                            e.stopPropagation(); e.preventDefault;
-                            if (onCompare) {
-                                onCompare(coWorkName)
-                            }
-                        }
-                        }
                     />:null
                 }
         </InteractiveCard>

@@ -17,7 +17,7 @@ export default async function MyReservationPage () {
 
     return (
         <main>
-            <div>My reservation {profile.data.name}</div>
+            <div className="text-3xl font-bold text-center my-4">{profile.data.name} reservation </div>
                 <ReservationList reservationJson={reservations}/>
         </main>
     );

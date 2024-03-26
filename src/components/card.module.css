@@ -20,5 +20,15 @@ div.cardimg {
 div.cardtext {
     height: 30%;
     padding: 10px;
+    padding-left: 12px;
+    font-size:x-large;
+    font-weight: 700;
+}
 
+div.price {
+    display: inline-block;
+    padding-top: 20px;
+    font-size: medium;
+    font-weight: 500;
+    margin-right: auto;
 }
