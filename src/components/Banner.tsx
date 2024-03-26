@@ -11,7 +11,7 @@ export default function Banner() {
     const [index, setIndex] = useState(0)
     const router = useRouter()
     const { data:session} = useSession()
-    console.log(session)
+    //console.log(session)
     //router.prefetch('/coworkingspace')
 
     return (
